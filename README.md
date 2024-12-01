@@ -179,4 +179,3 @@ DEBUG: Average moisture for SmartFridge1: 65.23 RH%`
 3.  Implement a user-friendly graphical interface for client interaction.
 4.  Use advanced query optimization techniques for large datasets.
 
-----------oses only and follows standard fair use for datasets.
