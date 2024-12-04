@@ -23,21 +23,20 @@ def process_query(query):
     now = convert_to_pst(datetime.utcnow())
     three_hours_ago = now - timedelta(hours=3)
 
-    # Query 1: Average moisture for both fridges in the past 3 hours
+    # Query 1: Average moisture for the fridge in the kitchen in the past 3 hours
     if "average moisture" in query:
         three_hours_ago = datetime.utcnow() - timedelta(hours=3)
         print(f"DEBUG: Fetching data since {three_hours_ago}")
 
-        # Fetch metadata for both fridges
-        fridge1_metadata = metadata_collection.find_one({"customAttributes.name": "SmartFridge1"})
-        fridge2_metadata = metadata_collection.find_one({"customAttributes.name": "SmartFridge2"})
+        # Fetch metadata for the fridge
+        fridge1_metadata = metadata_collection.find_one({"customAttributes.name": "SmartFridge1"}
 
         if not fridge1_metadata:
             return "The fridges is missing metadata."
 
         fridge1_uid = fridge1_metadata["assetUid"]
 
-        # Fetch data for each fridge from virtual_collection
+        # Fetch data for the fridge from virtual_collection
         fridge1_data = list(virtual_collection.find({
             "payload.parent_asset_uid": fridge1_uid,
             "time": {"$gte": three_hours_ago}
@@ -57,7 +56,7 @@ def process_query(query):
         if not fridge1_moisture:
             return "No moisture data found for the fridge in the kitchen in the past 3 hours."
 
-        # Calculate average moisture for each fridge
+        # Calculate average moisture for the fridge
         fridge1_avg = sum(fridge1_moisture) / len(fridge1_moisture) if fridge1_moisture else 0
         # Debugging outputs
         #print(f"DEBUG: Average moisture for SmartFridge1: {fridge1_avg:.2f} RH%")
