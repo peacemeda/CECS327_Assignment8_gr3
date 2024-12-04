@@ -2,7 +2,7 @@ import socket
 
 def send_query(query, HOST, PORT):
     HOST = HOST  # Server ip address
-    PORT = PORT      # Server Port
+    PORT = PORT  # Server Port
 
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as client:
         client.connect((HOST, PORT))
@@ -11,8 +11,8 @@ def send_query(query, HOST, PORT):
         print("Response from server:", response)
 
 if __name__ == "__main__":
-    HOST = input("Enter the server ip address:")  # Server ip address
-    PORT = int(input("Enter the server port number:"))     # Arbitrary port number
+    HOST = input("Enter the server ip address:") # Server ip address
+    PORT = int(input("Enter the server port number:")) # Server Port
     queries = [
         "What is the average moisture inside my kitchen fridge in the past three hours?",
         "What is the average water consumption per cycle in my smart dishwasher?",
@@ -26,3 +26,4 @@ if __name__ == "__main__":
         send_query(queries[choice - 1], HOST, PORT)
     else:
         print("Invalid query.")
+
