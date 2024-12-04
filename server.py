@@ -29,7 +29,7 @@ def process_query(query):
         print(f"DEBUG: Fetching data since {three_hours_ago}")
 
         # Fetch metadata for the fridge
-        fridge1_metadata = metadata_collection.find_one({"customAttributes.name": "SmartFridge1"}
+        fridge1_metadata = metadata_collection.find_one({"customAttributes.name": "SmartFridge1"})
 
         if not fridge1_metadata:
             return "The fridges is missing metadata."
