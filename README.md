@@ -106,7 +106,8 @@ The system consists of the following components:
 ----------
 
 ### **3. Server Functionality**
-
+-   Upon running the server, you will also be prompted to:
+    -   Enter the server's IP address and port number.
 The server performs the following:
 
 -   **Query 1**: Calculates the average relative humidity (RH%) inside the kitchen fridge over the past 3 hours.
